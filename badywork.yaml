@@ -4,7 +4,7 @@ project:
   docker_image: bodyworkml/bodywork-core:2.1.7
   DAG: mon_api2
 stages:
-  serve-predictions:
+  mon_api2:
     executable_module_path: mon_api2.py
     requirements:
       - fastapi==0.68.1
