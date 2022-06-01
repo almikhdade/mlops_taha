@@ -1,0 +1,21 @@
+version: "1.0"
+project:
+  name: pycaret-churn
+  docker_image: bodyworkml/bodywork-core:2.1.7
+  DAG: mon_api2
+stages:
+  mon_api2:
+    executable_module_path: mon_api2.py
+    requirements:
+      - fastapi==0.68.1
+      - pycaret[full]==2.3.3
+      - uvicorn==0.15.0
+    cpu_request: 0.5
+    memory_request_mb: 250
+    service:
+      max_startup_time_seconds: 120
+      replicas: 2
+      port: 8000
+      ingress: true
+logging:
+  log_level: INFO
